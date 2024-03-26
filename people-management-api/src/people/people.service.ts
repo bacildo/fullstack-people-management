@@ -11,7 +11,7 @@ export class PeopleService {
   ) {}
 
   async findAll(): Promise<Person[]> {
-    return await this.peopleRepository.find();
+    return await this.peopleRepository.find({relations:['addresses']});
   }
 
   async create(person: Person): Promise<Person> {

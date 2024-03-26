@@ -17,16 +17,10 @@ export class AddressController {
       address: data.logradouro,
       neighborhood: data.bairro,
       complement: data.complemento,
-      ddd: data.ddd,
-      gia: data.gia,
-      ibge: data.ibge,
       city: data.localidade,
-      siafi: data.siafi,
       uf: data.uf,
       id: data.id,
-      person: data.person,
-
-      // personId: null, // Você precisa ajustar isso de acordo com a lógica da sua aplicação
+      person: data.person.id,
     };
 
     return this.addressService.create(address);

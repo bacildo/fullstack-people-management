@@ -1,3 +1,5 @@
+// database.scripts.ts
+
 import { createConnection } from 'typeorm';
 import { Person } from './src/people/person.entity';
 import { Address } from './src/address/address.entity';
@@ -17,47 +19,44 @@ async function createDatabaseScript() {
   await connection.query(`CREATE TABLE IF NOT EXISTS address (
     id INT AUTO_INCREMENT PRIMARY KEY,
     cep VARCHAR(255) NOT NULL,
-    logradouro VARCHAR(255) NOT NULL,
-    numero VARCHAR(255) NOT NULL,
-    complemento VARCHAR(255) NOT NULL,
-    bairro VARCHAR(255) NOT NULL,
-    localidade VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    number VARCHAR(255) NOT NULL,
+    complement VARCHAR(255) NOT NULL,
+    neighborhood VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
     uf VARCHAR(255) NOT NULL,
-    ibge VARCHAR(255) NOT NULL,
-    gia VARCHAR(255) NOT NULL,
-    ddd VARCHAR(255) NOT NULL,
-    siafi VARCHAR(255) NOT NULL,
-    person_id INT NOT NULL,
-    FOREIGN KEY (person_id) REFERENCES person(id)
+    personId INT NOT NULL,
+    FOREIGN KEY (personId) REFERENCES person(id)
   )`);
 
   // Inserção de dados de exemplo
-  await connection.getRepository(Person).save([
-    {
-      name: 'Fulano',
-      gender: 'Masculino',
-      dateOfBirth: new Date(1990, 0, 1),
-      maritalStatus: 'Solteiro',
-    },
-    {
-      name: 'Ciclana',
-      gender: 'Feminino',
-      dateOfBirth: new Date(1995, 5, 15),
-      maritalStatus: 'Casada',
-    },
-  ]);
+  const personRepository = connection.getRepository(Person);
+  const addressRepository = connection.getRepository(Address);
 
-  await connection.getRepository(Address).save([
+  const fulano = await personRepository.save({
+    name: 'Fulano',
+    gender: 'Masculino',
+    dateOfBirth: new Date(1990, 0, 1),
+    maritalStatus: 'Solteiro',
+  });
+
+  const ciclana = await personRepository.save({
+    name: 'Ciclana',
+    gender: 'Feminino',
+    dateOfBirth: new Date(1995, 5, 15),
+    maritalStatus: 'Casada',
+  });
+
+  await addressRepository.save([
     {
       cep: '12345-678',
       address: 'Rua A',
       number: '123',
       complement: 'Apto 101',
       neighborhood: 'Bairro 1',
-      state: 'SP',
       city: 'São Paulo',
       uf: 'SP',
-      personId: 1,
+      personId: fulano.id, // Utiliza o ID da pessoa correspondente
     },
     {
       cep: '54321-876',
@@ -65,10 +64,9 @@ async function createDatabaseScript() {
       number: '456',
       complement: '',
       neighborhood: 'Bairro 2',
-      state: 'RJ',
       city: 'Rio de Janeiro',
       uf: 'RJ',
-      personId: 2,
+      personId: ciclana.id, // Utiliza o ID da pessoa correspondente
     },
   ]);
 
@@ -80,8 +78,5 @@ createDatabaseScript()
     console.log('Script de criação da base de dados executado com sucesso!');
   })
   .catch((error) => {
-    console.error(
-      'Erro ao executar script de criação da base de dados:',
-      error,
-    );
+    console.error('Erro ao executar script de criação da base de dados:', error);
   });
