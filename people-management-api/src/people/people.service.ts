@@ -11,11 +11,11 @@ export class PeopleService {
   ) {}
 
   async findAll(): Promise<Person[]> {
-    return await this.peopleRepository.find({ relations: ['addresses'] });
+    return await this.peopleRepository.find();
   }
 
-  async findById(id: number): Promise<Person> {
-    return await this.peopleRepository.findOne({ where: { id }, relations: ['addresses'] });
+  async findById(id: number): Promise<Person[]> {
+    return await this.peopleRepository.find({where:{id:id}});
   }
   
   async create(person: Person): Promise<Person> {

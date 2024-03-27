@@ -1,12 +1,91 @@
 <h2>Adicionar Usuário</h2>
 <form (ngSubmit)="onSubmit()">
   <label for="name">Nome:</label>
-  <input type="text" id="name" name="name" [(ngModel)]="user.name" required>
+  <input type="text" id="name" name="name" [(ngModel)]="user.name" required />
 
   <label for="gender">Sexo:</label>
-  <input type="text" id="gender" name="gender" [(ngModel)]="user.gender" required>
+  <input
+    type="text"
+    id="gender"
+    name="gender"
+    [(ngModel)]="user.gender"
+    required
+  />
 
-  <!-- Adicione os outros campos do formulário conforme necessário -->
+  <label for="gender">Data de Nascimento:</label>
+  <input
+    type="text"
+    id="dateOfBirth"
+    name="dateOfBirth"
+    [(ngModel)]="user.dateOfBirth"
+    required
+  />
+
+  <label for="gender">Estado Civil:</label>
+  <input
+    type="text"
+    id="maritalStatus"
+    name="maritalStatus"
+    [(ngModel)]="user.maritalStatus"
+    required
+  />
+
+  <label for="cep">CEP:</label>
+  <input
+    type="text"
+    id="cep"
+    name="cep"
+    [(ngModel)]="user.cep"
+    (ngModelChange)="searchCep()"
+  />
+
+  <label for="endereco">Endereço:</label>
+  <input
+    type="text"
+    id="endereco"
+    name="endereco"
+    [(ngModel)]="user.endereco"
+    required
+  />
+
+  <label for="numero">Número:</label>
+  <input
+    type="text"
+    id="numero"
+    name="numero"
+    [(ngModel)]="user.numero"
+    required
+  />
+
+  <label for="complemento">Complemento:</label>
+  <input
+    type="text"
+    id="complemento"
+    name="complemento"
+    [(ngModel)]="user.complemento"
+    required
+  />
+
+  <label for="bairro">Bairro:</label>
+  <input
+    type="text"
+    id="bairro"
+    name="bairro"
+    [(ngModel)]="user.bairro"
+    required
+  />
+
+  <label for="cidade">Cidade:</label>
+  <input
+    type="text"
+    id="cidade"
+    name="cidade"
+    [(ngModel)]="user.cidade"
+    required
+  />
+
+  <label for="uf">UF:</label>
+  <input type="text" id="uf" name="uf" [(ngModel)]="user.uf" required />
 
   <button type="submit">Adicionar Usuário</button>
 </form>

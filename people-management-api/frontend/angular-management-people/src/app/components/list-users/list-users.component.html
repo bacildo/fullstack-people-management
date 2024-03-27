@@ -1,7 +1,6 @@
 <h2>Lista de Usuários</h2>
 <ul>
   <li *ngFor="let user of users">
-    {{ user.name }} - {{ user.gender }}
-    <!-- Exiba outros detalhes do usuário conforme necessário -->
+    {{ user.name }} - {{ user.gender }} - {{ user.dateOfBirth }} - {{ user.maritalStatus}}
   </li>
 </ul>

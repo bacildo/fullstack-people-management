@@ -12,7 +12,7 @@ export class PeopleController {
   }
 
   @Get(':id')
-  async findById(@Param('id') id:number): Promise<Person> {
+  async findById(@Param('id') id:number): Promise<Person[]> {
     return this.peopleService.findById(id);
   }
 
