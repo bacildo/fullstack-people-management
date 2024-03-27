@@ -16,6 +16,8 @@ import { AddressModule } from './address/address.module';
       port: 3306,
       username: 'dev',
       password: 'dev',
+      keepConnectionAlive: true,
+      
     }),
     PeopleModule,
     AddressModule,

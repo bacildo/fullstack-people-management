@@ -11,6 +11,11 @@ export class PeopleController {
     return this.peopleService.findAll();
   }
 
+  @Get(':id')
+  async findById(@Param('id') id:number): Promise<Person> {
+    return this.peopleService.findById(id);
+  }
+
   @Post()
   async create(@Body() person: Person): Promise<Person> {
     return this.peopleService.create(person);

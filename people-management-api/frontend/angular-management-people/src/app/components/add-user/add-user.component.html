@@ -1,0 +1,12 @@
+<h2>Adicionar Usuário</h2>
+<form (ngSubmit)="onSubmit()">
+  <label for="name">Nome:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="user.name" required>
+
+  <label for="gender">Sexo:</label>
+  <input type="text" id="gender" name="gender" [(ngModel)]="user.gender" required>
+
+  <!-- Adicione os outros campos do formulário conforme necessário -->
+
+  <button type="submit">Adicionar Usuário</button>
+</form>
