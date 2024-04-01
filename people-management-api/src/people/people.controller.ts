@@ -18,6 +18,7 @@ export class PeopleController {
 
   @Post()
   async create(@Body() person: Person): Promise<Person> {
+    console.log('person backend',person)
     return this.peopleService.create(person);
   }
 

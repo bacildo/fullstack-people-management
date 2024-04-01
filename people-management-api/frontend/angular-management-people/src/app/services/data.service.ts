@@ -3,11 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getUsers(): Observable<any> {
     return this.http.get<any>('http://localhost:3000/people');
@@ -15,5 +14,9 @@ export class DataService {
 
   getAddressByCEP(cep: string): Observable<any> {
     return this.http.get<any>(`https://viacep.com.br/ws/${cep}/json/`);
+  }
+
+  addUser(user: any): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/people', user);
   }
 }

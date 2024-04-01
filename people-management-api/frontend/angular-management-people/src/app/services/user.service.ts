@@ -14,6 +14,7 @@ export class UserService {
   }
 
   addUser(user: any): void {
+    console.log('useruseruser',user)
     this.users.push(user);
   }
 
