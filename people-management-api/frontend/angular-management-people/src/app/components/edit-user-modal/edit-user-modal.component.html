@@ -1,0 +1,9 @@
+<h1>Edit User</h1>
+<form>
+  <label>Name:</label>
+  <input type="text" [(ngModel)]="user.name" name="name"><br>
+  <label>Gender:</label>
+  <input type="text" [(ngModel)]="user.gender" name="gender"><br>
+  <!-- Adicione os demais campos aqui -->
+  <button mat-button (click)="saveChanges()">Save</button>
+</form>

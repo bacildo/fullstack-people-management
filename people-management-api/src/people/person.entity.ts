@@ -11,8 +11,8 @@ export class Person {
   @Column()
   gender: string;
 
-  @Column({ type: 'date' })
-  dateOfBirth: Date;
+  @Column()
+  dateOfBirth: string;
 
   @Column()
   maritalStatus: string;

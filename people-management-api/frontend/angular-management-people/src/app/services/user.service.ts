@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private users: any[] = [];
@@ -14,7 +14,10 @@ export class UserService {
   }
 
   addUser(user: any): void {
-    console.log('useruseruser',user)
+    this.users.push(user);
+  }
+
+  editUser(user: any): void {
     this.users.push(user);
   }
 

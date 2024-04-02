@@ -1,6 +1,37 @@
-<h2>Lista de Usuários</h2>
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.name }} - {{ user.gender }} - {{ user.dateOfBirth }} - {{ user.maritalStatus}}
-  </li>
-</ul>
+<h2>List of Users</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Marital Status</th>
+      <th>CEP</th>
+      <th>Address</th>
+      <th>Number</th>
+      <th>Complement</th>
+      <th>Neighborhood</th>
+      <th>City</th>
+      <th>UF</th>
+      <th>Date of Birth</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.gender }}</td>
+      <td>{{ user.maritalStatus }}</td>
+      <td>{{ user.cep }}</td>
+      <td>{{ user.address }}</td>
+      <td>{{ user.number }}</td>
+      <td>{{ user.complement }}</td>
+      <td>{{ user.neighborhood }}</td>
+      <td>{{ user.city }}</td>
+      <td>{{ user.uf }}</td>
+      <td>{{ user.dateOfBirth }}</td>
+      <td>
+        <button mat-button (click)="openEditUserModal(user)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

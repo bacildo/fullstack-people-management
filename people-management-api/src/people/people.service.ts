@@ -24,7 +24,7 @@ export class PeopleService {
 
   async update(id: any, person: Person): Promise<Person> {
     await this.peopleRepository.update(id, person);
-    return await this.peopleRepository.findOne(id);
+    return await this.peopleRepository.findOne({where:{id:id}});
   }
 
   async delete(id: number): Promise<void> {
