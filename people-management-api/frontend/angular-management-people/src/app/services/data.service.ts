@@ -26,7 +26,7 @@ export class DataService {
     return this.http.put<any>(`${this.baseUrl}/people/${userId}`, userData);
   }
 
-  deleteUser(userId: string): Observable<any> {
+  deleteUser(userId: number): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}/people/${userId}`);
   }
 }

@@ -6,12 +6,15 @@ import { DataService } from '../../services/data.service';
 @Component({
   selector: 'app-list-users',
   templateUrl: './list-users.component.html',
-  styleUrls: ['./list-users.component.css']
+  styleUrls: ['./list-users.component.css'],
 })
 export class ListUsersComponent implements OnInit {
   users: any[] = [];
 
-  constructor(private dataService: DataService, public dialog: MatDialog) { }
+  constructor(
+    private dataService: DataService,
+    public dialog: MatDialog,
+  ) {}
 
   ngOnInit(): void {
     this.loadUsers();
@@ -34,10 +37,11 @@ export class ListUsersComponent implements OnInit {
     });
   }
 
-  deleteUser(){
-    this.dataService.deleteUser(this.users[0].id).subscribe(() => {
+  deleteUser(userId: number): void {
+    this.dataService.deleteUser(userId).subscribe((data) => {
+      this.users = this.users.filter((user) => user.id !== userId);
       this.loadUsers();
+      alert('Usuário excluído com sucesso!');
     });
-    alert('Usuário excluído com sucesso!');
   }
 }

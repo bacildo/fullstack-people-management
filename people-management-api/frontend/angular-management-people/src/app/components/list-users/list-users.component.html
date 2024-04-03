@@ -31,7 +31,7 @@
       <td>{{ user.dateOfBirth }}</td>
       <td>
         <button mat-button (click)="openEditUserModal(user)">Editar</button>
-        <button mat-button (click)="deleteUser()">Apagar</button>
+        <button mat-button (click)="deleteUser(user.id)">Apagar</button>
       </td>
     </tr>
   </tbody>
