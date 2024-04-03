@@ -5,6 +5,8 @@ import { DataService } from '../../services/data.service';
 @Component({
   selector: 'app-edit-user-modal',
   templateUrl: './edit-user-modal.component.html',
+  styleUrls: ['./edit-user-modal.component.css'], // Verifique se o arquivo CSS está sendo referenciado aqui
+
 })
 export class EditUserModalComponent implements OnInit {
   user: any;
@@ -54,9 +56,6 @@ export class EditUserModalComponent implements OnInit {
       Math.ceil(
         (nextBirthday.getTime() - now.getTime()) / (1000 * 60 * 60 * 24),
       ) + 1;
-
-    console.log('Idade:', age);
-    console.log('Dias até o próximo aniversário:', daysToBirthday);
 
     if (daysToBirthday === 365) {
       alert('Parabéns pelo seu aniversário!');

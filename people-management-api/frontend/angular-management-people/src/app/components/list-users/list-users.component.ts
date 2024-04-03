@@ -31,7 +31,7 @@ export class ListUsersComponent implements OnInit {
 
   openEditUserModal(user: any): void {
     const dialogRef = this.dialog.open(EditUserModalComponent, {
-      width: '600px',
+      width: 'auto',
       data: { userId: user.id, user },
     });
 
