@@ -52,7 +52,6 @@ export class AddUserComponent {
       this.user.city = data.cidade;
       this.user.uf = data.uf;
 
-      console.log(data.dateOfBirth);
       const birth = new Date(data.dateOfBirth);
       const now = new Date();
       const nextBirthday = new Date(

@@ -23,25 +23,38 @@ export class ListUsersComponent implements OnInit {
   loadUsers(): void {
     this.dataService.getUsers().subscribe((data) => {
       this.users = data;
+      this.users.forEach((user) => {
+        user.dateOfBirth = this.formatDate(user.dateOfBirth);
+      });
     });
   }
 
   openEditUserModal(user: any): void {
     const dialogRef = this.dialog.open(EditUserModalComponent, {
-      width: '250px',
+      width: '600px',
       data: { userId: user.id, user },
     });
 
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The edit user dialog was closed');
+    dialogRef.afterClosed().subscribe((updatedUser) => {
+      if (updatedUser) {
+        const index = this.users.findIndex((u) => u.id === updatedUser.id);
+        this.users[index] = updatedUser;
+      }
+
+      this.loadUsers(); // Recarrega a lista de usuários após fechar a modal de edição
     });
   }
 
   deleteUser(userId: number): void {
-    this.dataService.deleteUser(userId).subscribe((data) => {
+    this.dataService.deleteUser(userId).subscribe(() => {
       this.users = this.users.filter((user) => user.id !== userId);
       this.loadUsers();
       alert('Usuário excluído com sucesso!');
     });
+  }
+
+  private formatDate(dateString: string): string {
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
   }
 }
