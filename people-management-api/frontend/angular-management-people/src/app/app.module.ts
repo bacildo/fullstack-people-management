@@ -11,6 +11,8 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { EditUserModalComponent } from './components/edit-user-modal/edit-user-modal.component';
 import { HomeComponent } from './components/home/home.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatPaginatorModule
   ],
   // providers: [provideAnimationsAsync('noop')],
   bootstrap: [AppComponent],

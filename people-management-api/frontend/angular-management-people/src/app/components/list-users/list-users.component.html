@@ -17,7 +17,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of getCurrentPageUsers()">
       <td>{{ user.name }}</td>
       <td>{{ user.gender }}</td>
       <td>{{ user.maritalStatus }}</td>
@@ -36,3 +36,10 @@
     </tr>
   </tbody>
 </table>
+
+<mat-paginator
+  [length]="totalItems"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="pageChange($event)"
+></mat-paginator>
