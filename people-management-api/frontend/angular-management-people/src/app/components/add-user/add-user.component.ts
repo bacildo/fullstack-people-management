@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserService } from '../../services/user.service';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -23,7 +22,6 @@ export class AddUserComponent {
   };
 
   constructor(
-    private userService: UserService,
     private dataService: DataService,
   ) {}
 
@@ -53,19 +51,5 @@ export class AddUserComponent {
       this.user.uf = data.uf;
       alert('Usuário adicionado com sucesso!');
     });
-
-    // console.log('user', this.user);
-    // this.user = {
-    //   name: '',
-    //   gender: '',
-    //   dateOfBirth: '',
-    //   maritalStatus: '',
-    //   cep: '',
-    //   endereco: '',
-    //   numero: '',
-    //   complemento: '',
-    //   bairro: '',
-    //   cidade: '',
-    //   uf: '',
   }
 }

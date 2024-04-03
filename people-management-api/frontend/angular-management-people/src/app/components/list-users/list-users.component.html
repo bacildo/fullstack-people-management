@@ -2,18 +2,18 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Marital Status</th>
+      <th>Nome</th>
+      <th>Sexo</th>
+      <th>Estado Civil</th>
       <th>CEP</th>
-      <th>Address</th>
-      <th>Number</th>
-      <th>Complement</th>
-      <th>Neighborhood</th>
-      <th>City</th>
+      <th>Endereço</th>
+      <th>Número</th>
+      <th>Complemento</th>
+      <th>Bairro</th>
+      <th>Cidade</th>
       <th>UF</th>
-      <th>Date of Birth</th>
-      <th>Actions</th>
+      <th>Data de Nascimento</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +30,8 @@
       <td>{{ user.uf }}</td>
       <td>{{ user.dateOfBirth }}</td>
       <td>
-        <button mat-button (click)="openEditUserModal(user)">Edit</button>
+        <button mat-button (click)="openEditUserModal(user)">Editar</button>
+        <button mat-button (click)="deleteUser()">Apagar</button>
       </td>
     </tr>
   </tbody>

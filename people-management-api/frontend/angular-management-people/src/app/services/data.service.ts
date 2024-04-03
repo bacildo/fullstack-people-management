@@ -23,7 +23,10 @@ export class DataService {
   }
 
   editUser(userId: string, userData: any): Observable<any>  {
-    console.log('dataservice', userData)
     return this.http.put<any>(`${this.baseUrl}/people/${userId}`, userData);
+  }
+
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/people/${userId}`);
   }
 }

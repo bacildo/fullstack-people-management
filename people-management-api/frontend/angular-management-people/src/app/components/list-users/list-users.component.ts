@@ -33,4 +33,11 @@ export class ListUsersComponent implements OnInit {
       console.log('The edit user dialog was closed');
     });
   }
+
+  deleteUser(){
+    this.dataService.deleteUser(this.users[0].id).subscribe(() => {
+      this.loadUsers();
+    });
+    alert('Usuário excluído com sucesso!');
+  }
 }

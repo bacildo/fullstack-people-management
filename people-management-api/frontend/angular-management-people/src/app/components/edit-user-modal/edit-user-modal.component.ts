@@ -33,5 +33,6 @@ export class EditUserModalComponent implements OnInit {
     this.dataService.editUser(this.data.userId, this.user).subscribe(() => {
       this.dialogRef.close();
     });
+    alert('Usuário atualizado com sucesso!');
   }
 }
