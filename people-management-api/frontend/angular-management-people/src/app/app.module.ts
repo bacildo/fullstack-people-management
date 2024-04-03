@@ -9,9 +9,16 @@ import { AppComponent } from './app.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { EditUserModalComponent } from './components/edit-user-modal/edit-user-modal.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, AddUserComponent, ListUsersComponent, EditUserModalComponent],
+  declarations: [
+    AppComponent,
+    AddUserComponent,
+    ListUsersComponent,
+    EditUserModalComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
