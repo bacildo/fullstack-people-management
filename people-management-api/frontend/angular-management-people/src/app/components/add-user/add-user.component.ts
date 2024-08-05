@@ -45,11 +45,11 @@ export class AddUserComponent {
       this.user.dateOfBirth = data.dateOfBirth;
       this.user.maritalStatus = data.maritalStatus;
       this.user.cep = data.cep;
-      this.user.address = data.endereco;
-      this.user.number = data.numero;
-      this.user.complement = data.complemento;
-      this.user.neighborhood = data.bairro;
-      this.user.city = data.cidade;
+      this.user.address = data.address;
+      this.user.number = data.number;
+      this.user.complement = data.complement;
+      this.user.neighborhood = data.neighborhood;
+      this.user.city = data.city;
       this.user.uf = data.uf;
 
       const birth = new Date(data.dateOfBirth);
